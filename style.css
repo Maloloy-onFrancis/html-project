@@ -1,0 +1,107 @@
+ * {
+  font-family: 'Pusab', sans-serif;                                              
+font-weight: 400;
+font-style: normal;
+ }
+ .main {
+  background-color: #DFE2CF;
+ }
+ .sc {
+  background-color: #F2F4E5;
+ }
+ .Neko{
+font-family: 'Pusab', sans-serif;                                              
+font-weight: 400;
+font-style: normal;
+color: #6495ED;
+background-color:#DFE2CF;
+
+background-color: #DFE2CF;
+text-align: center;
+
+
+}
+.Marker{
+  font-family: Spartan, sans-serif;
+  color: #6495ED;
+}
+.create {
+  font-family: 'Pusab', sans-serif;                                              
+  font-weight: 400;
+  font-style: normal;
+
+  background-color: #DFE2CF ;  
+}
+.container {
+ display: flex;
+ column-gap: 40px;
+}
+
+.sp {
+  margin-top: 100px;
+}
+.qw {
+  font-family: Spartan, sans-serif;
+  color: #6495ED;
+  margin-left: 550px;
+}
+.color {
+  background-color: #DFE2CF ; 
+}
+.one {
+  margin: 10px;
+  border: 20px solid, lightblue;
+  height: 75px;
+  width: 250px;
+  background-color:rgb(126, 192, 214) ;
+  margin-left: 500px;
+  text-align: center;
+
+}
+.two {
+  margin: 10px;
+  border: 20px solid, lightblue;
+  height: 75px;
+  width: 250px;
+  background-color:rgb(126, 192, 214) ;
+  margin-left: 500px;
+  text-align: center;
+}
+.three {
+  margin: 10px;
+  border: 20px solid, lightblue;
+  height: 75px;
+  width: 250px;
+  background-color:rgb(126, 192, 214) ;
+  margin-left: 500px;
+  text-align: center;
+}
+.img {
+ align-items: center;
+  background-color: #3c2850;
+  height: 500px;
+  width: 250px;
+  
+} 
+.img:hover {
+  content: url(image/Names.jfif);
+}
+
+/* mangazone stylesheet */
+.re {
+font-family: 'Pusab', sans-serif;                                              
+font-weight: 400;
+font-style: normal;
+color: #6495ED;
+background-color:#DFE2CF;
+    
+background-color: #DFE2CF;
+text-align: center;
+padding: 20px;
+}
+.n {
+text-align: center;
+}
+.q {
+  background-color: #F2F4E5;
+}
