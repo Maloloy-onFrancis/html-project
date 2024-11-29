@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neko Nook</title>
+  <link rel="stylesheet" href="sketch.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <h2><a href="#">Neko Nook</a></h2>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="mangazone.html">Read Manga</a></li>
+          <li><a href="sketch.html">Browse artwork</a></li>
+          <li><a href="about.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle" id="menuToggle">&#9776;</div>
+    </div>
+  </header>
+  <section class="upload-section">
+    <h2>Upload Your Artwork</h2>
+    <p>Share your artwork with us!</p>
+    <form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
+      <label for="fileUpload" class="upload-button">
+        Choose an Image
+        <input type="file" id="fileUpload" name="file" accept="image/*" />
+      </label>
+      <button type="submit">Upload Artwork</button>
+    </form>
+    <div id="uploadFeedback"></div>
+  </section>
+
+  <section class="gallery-section">
+    <h2>Artwork Gallery</h2>
+    <div id="gallery" class="gallery"></div>
+    <div id="loading" class="loading">Loading more images...</div>
+  </section>
+
+  <div id="imageModal" class="modal">
+    <span class="close" id="closeModal">&times;</span>
+    <img class="modal-content" id="modalImage" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+<script>
+    let imageCount = 0; //tracker
+
+function handleFileUpload(event) {
+  event.preventDefault();
+  
+  const file = document.getElementById('fileUpload').files[0];
+  const feedbackDiv = document.getElementById('uploadFeedback');
+  
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const newImage = document.createElement('img');
+      newImage.src = e.target.result;
+      newImage.alt = file.name;
+      newImage.classList.add('gallery-item');
+      
+      const gallery = document.getElementById('gallery');
+      gallery.appendChild(newImage);
+      
+      feedbackDiv.textContent = `File uploaded successfully: ${file.name}`;
+      feedbackDiv.style.color = 'green';
+    
+      loadMoreImages();
+    };
+    reader.readAsDataURL(file);
+  } else {
+    feedbackDiv.textContent = 'Please select a file.';
+    feedbackDiv.style.color = 'red';
+  }
+}
+
+function loadMoreImages() {
+  const gallery = document.getElementById('gallery');
+  const loading = document.getElementById('loading');
+  
+  loading.style.display = 'block';
+  
+  setTimeout(() => {
+    for (let i = 0; i < 5; i++) {
+      const newImage = document.createElement('img');
+      newImage.src = `https://placekitten.com/200/300?image=${imageCount++}`;
+      newImage.alt = `Artwork ${imageCount}`;
+      newImage.classList.add('gallery-item');
+      
+      gallery.appendChild(newImage);
+    }
+    loading.style.display = 'none';
+  }, 1000);
+}
+
+function viewImageInModal(event) {
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const imageSrc = event.target.src;
+  
+  modal.style.display = 'block';
+  modalImage.src = imageSrc;
+}
+
+function closeModal() {
+  const modal = document.getElementById('imageModal');
+  modal.style.display = 'none';
+}
+
+document.getElementById('uploadForm').addEventListener('submit', handleFileUpload);
+document.getElementById('gallery').addEventListener('click', function(event) {
+  if (event.target.tagName.toLowerCase() === 'img') {
+    viewImageInModal(event);
+  }
+});
+document.getElementById('closeModal').addEventListener('click', closeModal);
+
+</script>
+</html>

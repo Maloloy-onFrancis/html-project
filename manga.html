@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manga Viewer</title>
+  <link rel="stylesheet" href="mangazone.css">
+</head>
+<body>
+
+  <header>
+    <h1>Manga Title 1</h1>
+    <nav>
+      <a href="mangazone.html">Back to Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="manga-reader">
+      <div class="manga-page">
+        <img src="images/manga1.jpg" alt="Manga Page 1">
+      </div>
+      <div class="navigation">
+        <button id="prev-page">Previous</button>
+        <button id="next-page">Next</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Manga World | All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js">
+  
+let currentPage = 1;
+const mangaPages = [
+  'images/manga1.jpg', 
+  'images/manga2.jpg',  
+  'images/manga3.jpg'   
+];
+
+const nextButton = document.getElementById('next-page');
+const prevButton = document.getElementById('prev-page');
+const mangaPageImage = document.querySelector('.manga-page img');
+
+nextButton.addEventListener('click', () => {
+  if (currentPage < mangaPages.length) {
+    currentPage++;
+    mangaPageImage.src = mangaPages[currentPage - 1];
+  }
+});
+
+prevButton.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    mangaPageImage.src = mangaPages[currentPage - 1];
+  }
+});
+
+  </script>
+</body>
+</html>

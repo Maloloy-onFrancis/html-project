@@ -1,0 +1,168 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.navbar {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #111823;
+  padding: 0 20px;
+}
+
+.logo h2 a {
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffd8eb;
+  font-family: sans-serif;
+}
+
+nav {
+  background-color: #111823;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffd8eb;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #f18930;
+  color: black;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* Featured Manga Section */
+#manga-list {
+  padding: 40px;
+  text-align: center;
+}
+
+.manga-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.manga-item {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.manga-item img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover zoom effect */
+.manga-item img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add shadow for zoom effect */
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111823;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f18930;
+  border-radius: 10px;
+  border: 3px solid #111823;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ffd8eb;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #f18930;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #111823;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #111823;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+  
+  .logo h2 {
+    font-size: 24px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
